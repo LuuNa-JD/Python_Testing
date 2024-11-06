@@ -22,12 +22,12 @@ clubs = loadClubs()
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', clubs=clubs)
 
 @app.route('/showSummary',methods=['POST'])
 def showSummary():
     club = [club for club in clubs if club['email'] == request.form['email']][0]
-    return render_template('welcome.html',club=club,competitions=competitions)
+    return render_template('welcome.html',club=club,competitions=competitions, clubs=clubs)
 
 
 @app.route('/book/<competition>/<club>')
