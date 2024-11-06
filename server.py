@@ -53,7 +53,7 @@ def book(competition,club):
         return render_template('welcome.html', club=club, competitions=competitions)
 
 
-@app.route('/purchasePlaces',methods=['POST'])
+@app.route('/purchasePlaces', methods=['POST'])
 def purchasePlaces():
     competition = [
         c for c in competitions
@@ -67,6 +67,12 @@ def purchasePlaces():
         return render_template(
             'welcome.html', club=club, competitions=competitions
         )
+
+    if placesRequired > 12:
+        flash("You cannot book more than 12 places in a single competition.")
+        return render_template(
+            'welcome.html', club=club, competitions=competitions
+        ), 200
 
     club['points'] = int(club['points']) - placesRequired
 
