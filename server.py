@@ -35,7 +35,7 @@ def showSummary():
             if club['email'] == request.form['email']
         ][0]
         return render_template(
-            'welcome.html', club=club, competitions=competitions
+            'welcome.html', club=club, competitions=competitions, clubs=clubs
         )
 
     except IndexError:
