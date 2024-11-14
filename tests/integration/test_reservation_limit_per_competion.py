@@ -30,7 +30,7 @@ def test_reservation_limit_per_competition(client):
         'competition': 'Spring Festival',
         'club': 'Simply Lift',
         'places': 13
-    })
+    }, follow_redirects=True)
     assert response.status_code == 200
     assert b"You cannot book more than 12 places in a single competition." \
            in response.data

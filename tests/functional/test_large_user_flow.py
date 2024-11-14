@@ -38,7 +38,7 @@ def test_large_user_flow(client):
         'competition': 'Spring Festival',
         'club': 'She Lifts',
         'places': 15
-    })
+    }, follow_redirects=True)
     assert b"You do not have enough points to book that many places." \
            in response.data
 
