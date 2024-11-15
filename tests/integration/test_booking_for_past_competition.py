@@ -1,13 +1,6 @@
-import sys
-import os
 import pytest
 import json
-sys.path.insert(
-    0, os.path.abspath(
-        os.path.join(os.path.dirname(__file__), '../../')
-    )
-)
-from server import app, clubs, competitions # noqa
+from server import app, clubs, competitions
 
 
 @pytest.fixture
